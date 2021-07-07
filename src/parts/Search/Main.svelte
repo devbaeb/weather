@@ -3,6 +3,7 @@
 
     import Cities from './Cities.svelte';
     import Navbar from './Navbar.svelte';
+    import FlipSide from './FlipSide.svelte'
 
     let toggle = false;
     let searchHandler = () => {
@@ -15,7 +16,7 @@
 </script>
 
 {#if toggle == false}
-    <div class = "citiesContainer" transition:fly = "{{y: -200, duration: 300}}">
+    <div class = "citiesContainer" transition:fly = "{{y: -200, duration: 1000}}">
         <Navbar />
         <div class = "container">
             <input on:click = {searchHandler}>
@@ -25,14 +26,17 @@
         <Cities margin = {"1rem"} name = "Zalupinsk" weather = "Rainy" temp = -10/>
     </div>
 {/if}
+
 {#if toggle == true}
-    <div class = "flipContaner" in:fly = "{{duration: 1300, y:200}}">
-        <button on:click={searchHandler}>fix</button>
+    <div class = "flipContainer" transition:fly = "{{y: 50, duration: 1500}}">
+        <FlipSide func = {searchHandler} />
     </div>
 {/if}
+
 <style>
     .citiesContainer{
-        all:inherit
+        all:inherit;
+        position: absolute;
     }
     .container{
         display: flex;

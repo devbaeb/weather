@@ -10,7 +10,7 @@
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
     :global(body){
         --bgColor: #4D29B4;
-        background-image: url("../plus.png");
+        background-image: url("../city.png");
         background: var(--bgColor);
         font-family: 'Inter', sans-serif;
         color: white;
