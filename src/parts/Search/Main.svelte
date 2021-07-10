@@ -28,7 +28,7 @@
 {/if}
 
 {#if toggle == true}
-    <div class = "flipContainer" transition:fly = "{{y: 50, duration: 1500}}">
+    <div class = "flipContainer" in:fly = "{{y: 10, duration: 1000}}">
         <FlipSide func = {searchHandler} />
     </div>
 {/if}

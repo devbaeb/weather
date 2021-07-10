@@ -7,7 +7,21 @@ import CToAdd from './CitiesToAdd.svelte'
     let init = (el) => {
         el.focus()
     }
+
+    let city1 = ["K", "a", "z", "a", "n"];
+    let city2 = ["Z", "a", "l", "u", "p", "i", "n", "s", "k", "2"];
+    let city3 = ["K", "r", "o", "t"];
     let search;
+    let searchCity;
+    $: searchCity = (city) => {
+        for(let i = 0; i < city.length; i++){
+            let options = city.slice([-city.length], [i+1])
+            let optionsStr = options.join("")
+            if (search == optionsStr){
+                return true
+            }
+        }
+    }
 </script>
 
 <div class = "container">
@@ -16,14 +30,14 @@ import CToAdd from './CitiesToAdd.svelte'
     <button class = "cancelButton">Cancel</button>
 </div>
 <div class = "citiesContainer">
-    {#if search == "K"}
+    {#if searchCity(city1) == true}
         <CToAdd name = "Kazan" location = "Tatarstan, Russia" />
     {/if}
-    {#if search == "Z"}
+    {#if searchCity(city2) == true}
         <CToAdd name = "Zalupinsk2" location = "unknown" />
     {/if}
-    {#if search == "n"}
-        <CToAdd name = "no ideas" location = "my brain" />
+    {#if searchCity(city3) == true}
+        <CToAdd name = "Krot" location = "tvoi ogorod" />
     {/if}
 </div>
 
