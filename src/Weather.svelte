@@ -15,5 +15,6 @@
         font-family: 'Inter', sans-serif;
         color: white;
         font-weight: 400;
+        overflow-x: hidden;
     }
 </style>

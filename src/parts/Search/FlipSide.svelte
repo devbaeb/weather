@@ -22,6 +22,10 @@ import CToAdd from './CitiesToAdd.svelte'
             }
         }
     }
+    fetch('https://api.openweathermap.org/data/2.5/weather?q=London&appid={b34ffcf2aa79eb06d1eb6b2301465b3a}')
+        .then((response) => {
+            console.log(response.json())
+        })
 </script>
 
 <div class = "container">

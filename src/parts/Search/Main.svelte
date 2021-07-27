@@ -7,7 +7,7 @@
 
     let toggle = false;
     let searchHandler = () => {
-        if (toggle == false){
+        if (!toggle){
             toggle = true;
         }else{
             toggle = false;

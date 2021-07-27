@@ -37,13 +37,16 @@
     }
     .tempWrapper{
         display: flex;
-        margin-top: -2rem;
+        justify-content: end;
     }
     .tempWrapper h3{
+        margin: initial;
         font-size: 3rem;
+        align-self: flex-end;
     }
     .tempWrapper img{
-        margin-top: -0.7rem;
-        margin-left: -0.2rem;
+        width: 0.6rem;
+        margin-bottom: 1rem;
+        overflow: visible;
     }
 </style>
