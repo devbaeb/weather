@@ -1,6 +1,7 @@
 <script>
     import Search from '../Search.svelte';
-import CToAdd from './CitiesToAdd.svelte'
+    import CToAdd from './CitiesToAdd.svelte'
+    import config from '../config.js'
 
     export let func;
 
@@ -22,7 +23,8 @@ import CToAdd from './CitiesToAdd.svelte'
             }
         }
     }
-    fetch('https://api.openweathermap.org/data/2.5/weather?q=London&appid={b34ffcf2aa79eb06d1eb6b2301465b3a}')
+    const key = config.weatherApiKey
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=Moscow&appid=${key}`)
         .then((response) => {
             console.log(response.json())
         })
