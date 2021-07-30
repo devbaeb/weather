@@ -1,49 +1,28 @@
 <script>
     import Search from '../Search.svelte';
     import CToAdd from './CitiesToAdd.svelte'
-    import config from '../config.js'
 
-    export let func;
+    
+    export let func
+    export let name
+    export let location
+    export let search
+    export let enterHandler
+    export let funcForAddingCity
 
     let init = (el) => {
         el.focus()
     }
-
-    let city1 = ["K", "a", "z", "a", "n"];
-    let city2 = ["Z", "a", "l", "u", "p", "i", "n", "s", "k", "2"];
-    let city3 = ["K", "r", "o", "t"];
-    let search;
-    let searchCity;
-    $: searchCity = (city) => {
-        for(let i = 0; i < city.length; i++){
-            let options = city.slice([-city.length], [i+1])
-            let optionsStr = options.join("")
-            if (search == optionsStr){
-                return true
-            }
-        }
-    }
-    const key = config.weatherApiKey
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=Moscow&appid=${key}`)
-        .then((response) => {
-            console.log(response.json())
-        })
 </script>
 
 <div class = "container">
-    <input use:init type = "search" id = "input" bind:value={search}/>
+    <input use:init type = "search" id = "input" bind:value={search} on:keydown={enterHandler}/>
     <button on:click={func} class = "crossButton"><img src = "../cross.svg" alt = "x"/></button>
     <button class = "cancelButton">Cancel</button>
 </div>
 <div class = "citiesContainer">
-    {#if searchCity(city1) == true}
-        <CToAdd name = "Kazan" location = "Tatarstan, Russia" />
-    {/if}
-    {#if searchCity(city2) == true}
-        <CToAdd name = "Zalupinsk2" location = "unknown" />
-    {/if}
-    {#if searchCity(city3) == true}
-        <CToAdd name = "Krot" location = "tvoi ogorod" />
+    {#if name != undefined}
+        <CToAdd {name} {location} {funcForAddingCity}/>
     {/if}
 </div>
 

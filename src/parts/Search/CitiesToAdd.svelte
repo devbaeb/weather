@@ -1,6 +1,7 @@
 <script>
-    export let name;
-    export let location;
+    export let name
+    export let location
+    export let funcForAddingCity
 </script>
 
 <div class = "container">
@@ -8,7 +9,7 @@
         <h3>{name}</h3>
         <p>{location}</p>
     </div>
-    <button><img alt = "+" src = "../plus.svg" /></button>
+    <button on:mousedown="{funcForAddingCity}"><img alt = "+" src = "../plus.svg" /></button>
 </div>
 
 <style>

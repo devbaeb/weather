@@ -1,11 +1,10 @@
 <script>
-    export let margin;
     export let name;
     export let weather;
     export let temp;
 </script>
 
-<div class = "container" style = "margin-top: {margin}">
+<div class = "container">
     <div class = "textWrapper">
         <h3>{name}</h3>
         <p>{weather}</p>
@@ -27,6 +26,7 @@
         margin-left: 5%;
         border-radius: 15px;
         height: 10%;
+        margin-top: 1rem;
     }
     .container div{
         margin-left: 1rem;
