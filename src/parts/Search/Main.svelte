@@ -39,7 +39,7 @@
                 name: jsonObject.name,
                 location: jsonObject.sys.country,
                 temp: jsonObject.main.temp,
-                weather: jsonObject.weather[0].description
+                weather: jsonObject.weather[0].description,
             }
         }
     }
@@ -47,7 +47,7 @@
     // logic for the city managmnt tab
     let cities = []
     const funcForAddingCity = () => {
-        cities.push(newCity)
+        cities.unshift(newCity)
     }
 </script>
 
